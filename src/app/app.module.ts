@@ -9,15 +9,17 @@ import { AppComponent } from './components/app/app.component';
 import { PersonListComponent } from './components/person-list/person-list.component';
 import { AddPersonDialogComponent } from './components/add-person-dialog/add-person-dialog.component';
 import { DataChangeVisualizerComponent } from './components/data-change-visualizer/data-change-visualizer.component';
+import { GraphComponent } from './components/graph-component/graph-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonListComponent,
     AddPersonDialogComponent,
-    DataChangeVisualizerComponent
+    DataChangeVisualizerComponent,
+    GraphComponent
   ],
-  entryComponents: [AddPersonDialogComponent],
+  entryComponents: [AddPersonDialogComponent, GraphComponent],
   imports: [
     BrowserModule,
     FormsModule,

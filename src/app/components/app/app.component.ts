@@ -1,5 +1,6 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { PersonListComponent } from '.././person-list/person-list.component';
+import { GraphComponent } from '.././graph-component/graph-component.component';
 import { AddPersonDialogComponent } from '.././add-person-dialog/add-person-dialog.component';
 import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 import { PersonService } from '../.././services/person.service';
@@ -15,8 +16,9 @@ import { Person } from '../.././model/person';
 export class AppComponent {
   title = 'Persons Test App';
   dialogRef: MdDialogRef<any>;
+  dialogRefGraph: MdDialogRef<GraphComponent>;
   personList: Person[];
-  changedPerson:Person;
+  changedPerson: Person;
 
   constructor(private personService: PersonService,
     public dialog: MdDialog,
@@ -49,7 +51,17 @@ export class AppComponent {
     });
   }
 
-  onDelete($event){
+  onGraphShow() {
+    let config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
+    this.dialogRefGraph = this.dialog.open(GraphComponent, config);
+    this.dialogRefGraph.componentInstance.personList = this.personList;
+
+    this.dialogRefGraph.afterClosed().subscribe(result => {});
+
+  }
+
+  onDelete($event) {
     this.changedPerson = $event;
     this.personService.deletePersonByName($event);
   }
