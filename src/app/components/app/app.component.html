@@ -1,0 +1,8 @@
+<md-toolbar color="primary">
+  <span>{{title}}</span>
+</md-toolbar>
+<div layout="row"><button type="button" (click)="onAdd()" class="btn btn-primary add">Add</button></div>
+<div layout="row">
+  <person-list [personList] = "personList" (delete)="onDelete($event)" ></person-list>
+</div>
+<data-change-visualizer [person]="changedPerson" > </data-change-visualizer>

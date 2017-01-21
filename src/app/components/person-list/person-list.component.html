@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name <br>(Job title)</th>
+      <th>Age</th>
+      <th>Nickname</th>
+      <th>Employee</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of personList">
+      <td>{{person.name}} <br> {{person.job}}</td>
+      <td>{{person.age}}</td>
+      <td>{{person.nick}}</td>
+      <td><md-checkbox [disabled]="true" class="red" [ngModel]="person.employee"  ></md-checkbox></td>
+      <td><a href="#" (click)="onDelete(person)">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
