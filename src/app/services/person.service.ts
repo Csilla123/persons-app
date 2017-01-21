@@ -15,7 +15,7 @@ export class PersonService {
   }
 
   getAllPersons(): Observable<Person[]> {
-    return this.http.get('data/persons.json')
+    return this.http.get('assets/persons.json')
       .map((res) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
